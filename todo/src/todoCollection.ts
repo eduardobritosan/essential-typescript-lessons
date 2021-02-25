@@ -1,12 +1,12 @@
-import { TodoItem } from "./todoItem"
+import {TodoItem} from "./todoItem";
 
-export class TodoCollection{
+export class TodoCollection {
     private nextId: number = 1;
 
-    constructor(public userName : string, public todoItems: TodoItem[] = []){}
+    constructor(public userName : string, public todoItems: TodoItem[] = [] ) {}
 
     addTodo(task: string) : number {
-        while(this.getTodoById(this.nextId)) {
+        while (this.getTodoById(this.nextId)) {
             this.nextId++;
         }
         this.todoItems.push(new TodoItem(this.nextId, task));
@@ -14,7 +14,7 @@ export class TodoCollection{
     }
 
     getTodoById(id : number) : TodoItem {
-        return this.todoItems.find(item => item.id === id);
+        return this.todoItems.find( (item) => (item.id) === id);
     }
 
     markComplete(id: number, complete: boolean) {
